@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
+  <name>Interpolator</name>
+  <id>org.inkscape.arrange.interpolator</id>
+  <param name="steps" type="int" min="1" max="100" gui-text="Enter steps between interpolation">1</param>
+  <param name="rotation" type="int" max="360" min="-360" gui-text="Enter final step's rotation angle">90</param>
+  
+  <label appearance="header">Axis</label>
+
+  <vbox>
+    <param name="change_x" type="float" max="1000" min="-1000" gui-text="Change X">0.0</param>
+    <param name="change_y" type="float" max="1000" min="-1000" gui-text="Change Y">0.0</param>
+  </vbox>
+
+  <param name="axis_selection" type="bool" gui-text="Use selection for axis (Will override selection above)">false</param>
+
+  <label appearance="header">Rotation Center Point</label>
+
+  <vbox>
+    <param name="rotation_center_x" type="float" max="1000" min="-1000" gui-text="Enter rotation center X (0 is the middle of the element)">0.0</param>
+    <param name="rotation_center_y" type="float" max="1000" min="-1000" gui-text="Enter rotation center Y (0 is the middle of the element)">0.0</param>
+  </vbox>
+
+  <param name="center_point_selection" type="bool" gui-text="Use selection for center point (Will override selection above)">false</param>
+
+  <label appearance="header">Selection Usage</label>
+  <label xml:space="preserve">Warning: 
+• If both checkboxes are checked: 3rd selection = axis, 4th selection = center point
+• If only one checkbox is checked: 3rd selection = whichever option is checked
+  </label>
+
+  
+  <effect>
+    <effects-menu>
+      <submenu name="Arrange"/>
+    </effects-menu>
+  </effect>
+  <script>
+    <command location="inx" interpreter="python">interpolator.py</command>
+  </script>
+</inkscape-extension>
